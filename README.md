@@ -1,26 +1,26 @@
 # react-lazyload [![Build Status](https://travis-ci.org/jasonslyvia/react-lazyload.svg)](https://travis-ci.org/jasonslyvia/react-lazyload) [![npm version](https://badge.fury.io/js/react-lazyload.svg)](http://badge.fury.io/js/react-lazyload) [![Coverage Status](https://coveralls.io/repos/github/jasonslyvia/react-lazyload/badge.svg?branch=master)](https://coveralls.io/github/jasonslyvia/react-lazyload?branch=master)
 
-Lazyload your Components, Images or anything matters the performance.
+可以对组件、图片或者任何其他的内容执行懒加载。
 
 [Online Demo](//jasonslyvia.github.io/react-lazyload/examples/)
 
-## Why it's better
+## 它为什么更好
 
- - Take performance in mind, only 2 event listeners for all lazy-loaded components
- - Support both `one-time lazy load` and `continuous lazy load` mode
- - `scroll` / `resize` event handler is throttled so you won't suffer frequent update, you can switch to debounce mode too
- - Decorator supported
- - Thoroughly tested
+ - 只需要监听两个事件久可以实现对所有的组件进行懒加载
+ - 支持同时懒加载`one-time lazy load`和持续懒加载`continuous lazy load`两种模式
+ - 对`scroll` / `resize`事件处理进行了调节避免频繁刷新， 还可以切换到debounce模式
+ - 支持Decorator
+ - 完全测试
 
-## Installation
+## 安装方法
 
-> 2.0.0 is finally out, read [Upgrade Guide](https://github.com/jasonslyvia/react-lazyload/wiki/Upgrade-Guide), it's almost painless to upgrade!
+> 2.0.0已经发布, 请参考[Upgrade Guide](https://github.com/jasonslyvia/react-lazyload/wiki/Upgrade-Guide)进行升级!
 
 ```
 $ npm install --save react-lazyload
 ```
 
-## Usage
+## 使用方法
 
 ```javascript
 import React from 'react';
@@ -60,7 +60,7 @@ const App = () => {
 ReactDOM.render(<App />, document.body);
 ```
 
-If you want to have your component lazyloaded by default, try this handy decorator:
+如果你想让组件默认进行懒加载，可以用下面的方便的decorator模式:
 
 ```javascript
 import { lazyload } from 'react-lazyload';
@@ -77,9 +77,8 @@ class MyComponent extends React.Component {
 }
 ```
 
-You should aware that your component will only be mounted when it's visible in viewport, before that a placeholder will be rendered. 
-
-So you can safely send request in your component's `componentDidMount` without worring about performance loss or add some pretty entering effect, see this [demo](https://jasonslyvia.github.io/react-lazyload/examples/#/fadein) for more detail.
+需要注意的是你的组件只有在可视范围内并且占位符被渲染时才会被加载。 
+所以可以在组件的`componentDidMount`状态下安全的发送请求而不必担心损失性能，或者可以加入一些很酷的进入特效。可参考[示例](https://jasonslyvia.github.io/react-lazyload/examples/#/fadein)了解详细的细节。
 
 ## Props
 
@@ -87,7 +86,7 @@ So you can safely send request in your component's `componentDidMount` without w
 
 Type: Number/String Default: undefined
 
-In the first round of render, LazyLoad will render a placeholder for your component if no placeholder is provided and measure if this component is visible. Set `height` properly will make LazyLoad calculate more precisely. The value can be number or string like `'100%'`. You can also use css to set the height of the placeholder instead of using `height`.
+第一次渲染时，LazyLoad将渲染占位符，并测试组件是否可视。设置`height`属性可以让LazyLoad的计算更加精确，比如数字或类似字符串`'100%'`。设置height属性，不使用`height`属性，而是使用css设置占位符的高度。
 
 ### once
 
