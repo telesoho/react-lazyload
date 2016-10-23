@@ -78,7 +78,7 @@ class MyComponent extends React.Component {
 ```
 
 需要注意的是你的组件只有在可视范围内并且占位符被渲染时才会被加载。 
-所以可以在组件的`componentDidMount`状态下安全的发送请求而不必担心损失性能，或者可以加入一些很酷的进入特效。可参考[示例](https://jasonslyvia.github.io/react-lazyload/examples/#/fadein)了解详细的细节。
+所以可以在组件的`componentDidMount`状态下安全的发送请求而不必担心损失性能，或者可以加入一些很酷的进入特效。可参考[示例](https://jasonslyvia.github.io/react-lazyload/examples/#/fadein)了解更多细节。
 
 ## Props
 
@@ -92,15 +92,15 @@ Type: Number/String Default: undefined
 
 Type: Bool Default: false
 
-Once the lazy loaded component is loaded, do not detect scroll/resize event anymore. Useful for images or simple components.
+一旦懒加载组件被加载后，不在监听scroll/resize事件。通常对图片和简单组件使用这个选项。
 
 ### offset
 
 Type: Number/Array(Number) Default: 0
 
-Say if you want to preload a component even if it's 100px below the viewport (user have to scroll 100px more to see this component), you can set `offset` props to `100`. On the other hand, if you want to delay loading a component even if it's top edge has already appeared at viewport, set `offset` to negative number.
+如果你想组件在低于视图100px的时候被加载（用户必须多滚动100px才能看到该组件），可以设置`offset`属性为`100`。另外，你也可以通过设置`offset`为负数来延迟加载组件的甚至组件顶部已经进入视图。
 
-If you provide this props with array like `[200, 200]`, it will set top edge offset and bottom edge offset respectively.
+如果你设置属性为`[200, 200]`, 它将设置顶部边界便宜和底部边界偏移。
 
 ### scroll
 
